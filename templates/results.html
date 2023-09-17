@@ -2,10 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Property Information</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Raleway&display=swap');
 
+    header {
+            background-color: #205493;
+            color: white;
+            padding: 10px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        body {
+            font-family: Comfortaa, sans-serif;
+            font-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            padding: 20px;
+            background-color: #205493;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 28px;
+            color: #ffffff;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        .property-info {
+            margin-top: 20px;
+        }
+        .property-info p {
+            margin-bottom: 10px;
+        }
+
+        #map {
+            height: 500px;
+            width: 75%;
+            margin: 0 auto;
+
+        }
+    </style>
 </head>
 <body>
+            <header>
+                <h1 align="center">{{ ownerInfo[0]["addressLine1"] }}</h1>
+            </header>
+    <div class="container">
+
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                var location={lat: {{ ownerInfo[0]["latitude"] }}, lng: {{ ownerInfo[0]["longitude"]}}};
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: location
+                    });
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIaSGnmPkPM0MUtewScZ54yjEFk-xZ8Y4&callback=initMap"></script>
+</div>
+            <div class="container">
+        <div class="property-info">
+            <p style="color:white">{{ ownerInfo[0]["bedrooms"] }} Beds {{ ownerInfo[0]["bathrooms"] }} Baths {{ ownerInfo[0]["squareFootage"] }} sq. ft</p>
+            <p style="color:white">Floor count: {{ ownerInfo[0]["features"]["floorCount"] }}</p>
+        </div>
+        <hr>
+        <div class="property-info">
+            <p style="color:white">Last Sell Price: {{ ownerInfo[0]["lastSalePrice"] }}</p>
+            <p style="color:white">2019 Tax Assessment: {{ ownerInfo[0]["taxAssessment"]["2019"]["value"] }}</p>
+            <p style="color:white">Property type: {{ ownerInfo[0]["propertyType"] }}</p>
+        </div>
+        <hr>
+        <div class="property-info">
+            <p style="color:white">Listed By: {{ownerInfo[0]["owner"]["names"][0] }}</p>
+            <p style="color:white">Mailing Address: {{ ownerInfo[0]["owner"]["mailingAddress"]["id"]}}</p>
+        </div>
+
+    </div>
+        <div class="container">
+            <p style="color:white">Listings in the Area</p>
+            <div class="property-info">
+
+            </div>
+        </div>
+    <button><a href="http://localhost:3000/search">Search for FBI Crime</a></button>
 
 </body>
 </html>

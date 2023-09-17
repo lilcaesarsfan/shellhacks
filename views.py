@@ -19,5 +19,6 @@ def search():
         ownerInfo = forms.getOwnerData(address, city, state, zipc)
         priceInfo = forms.getPriceData(address, city, state, zipc)
 
+        print(priceInfo)
         return render_template('results.html', form=search, address=address, city=city, state=state, zipC=zipc, ownerInfo=ownerInfo, priceInfo=priceInfo)
     return render_template('index.html', form=search)

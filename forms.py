@@ -3,6 +3,8 @@ from wtforms import StringField
 import requests
 import json
 import fileFunctions
+from wtforms import FloatField
+
 
 class SearchByAddressForm (FlaskForm):
     addressInput = StringField('address')
@@ -17,14 +19,14 @@ def getOwnerData(address, city, state, zipc):
     print(queryString)
 
     headers = {
-        "X-RapidAPI-Key": "2235028e3amsh2a5d115540b1d8bp1238ffjsn13c7860f3454",
+        "X-RapidAPI-Key": "f8005bbd93msh44616702fd74021p171d2fjsn4af0e66d1dde",
         "X-RapidAPI-Host": "realty-mole-property-api.p.rapidapi.com"
     }
 
     response = requests.get(url, headers=headers, params=queryString).json()
-    fileFunctions.save_to_file(response, "JSON_Files/propertyOwner.json")
+    fileFunctions.save_to_file(response, "JSON_Files/ownerInfo.json")
 
-    getInfo = fileFunctions.read_from_file("JSON_Files/propertyOwner.json")
+    getInfo = fileFunctions.read_from_file("JSON_Files/ownerInfo.json")
 
     return getInfo
 
@@ -35,13 +37,13 @@ def getPriceData(address, city, state, zipc):
     print(queryString)
 
     headers = {
-        "X-RapidAPI-Key": "2235028e3amsh2a5d115540b1d8bp1238ffjsn13c7860f3454",
+        "X-RapidAPI-Key": "f8005bbd93msh44616702fd74021p171d2fjsn4af0e66d1dde",
         "X-RapidAPI-Host": "realty-mole-property-api.p.rapidapi.com"
     }
 
     response = requests.get(url, headers=headers, params=queryString).json()
-    fileFunctions.save_to_file(response, "JSON_Files/values.json")
+    fileFunctions.save_to_file(response, "JSON_Files/priceInfo.json")
 
-    getInfo = fileFunctions.read_from_file("JSON_Files/values.json")
+    getInfo = fileFunctions.read_from_file("JSON_Files/priceInfo.json")
 
     return getInfo

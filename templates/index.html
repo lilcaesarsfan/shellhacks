@@ -2,11 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Real Estate Web App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Raleway&display=swap');
+
+        header {
+            background-color: #205493;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        body {
+            font-family: Comfortaa, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .search-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .search-form-label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .search-form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        .search-form-submit {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .search-form-submit:hover {
+            background-color: #0056b3;
+        }
+
+        #map {
+            height: 400px;
+            width: 50%;
+        }
+
+#main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+}
+
+
+section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Welcome to Our Real Estate Hub</h1>
+    </header>
 
-    <div class="search_form_style">
+    <div class="search_form_style" id="main-container">
+        <section>
+            <h2>Property Details</h2>
         <form method="POST" action="/search">
           {#{{form.csrf}}}
           {#  {{form.hidden_tag()}}#}
@@ -29,9 +112,24 @@
 
             <input type="submit" value="search">
         </form>
-    </div>
+        </section>
 
-</body>
+<div id="map"></div>
+        <script>
+            function initMap() {
+                var location={lat: 25.907331, lng:-80.138743};
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: location
+                    });
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIaSGnmPkPM0MUtewScZ54yjEFk-xZ8Y4&callback=initMap"></script>
+        </div>
 
 </body>
 </html>
