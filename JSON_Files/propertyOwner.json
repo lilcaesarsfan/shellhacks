@@ -1,0 +1,56 @@
+[
+  {
+    "addressLine1": "1619 Nw 27th St",
+    "city": "Miami",
+    "state": "FL",
+    "zipCode": "33142",
+    "formattedAddress": "1619 Nw 27th St, Miami, FL 33142",
+    "assessorID": "01-3126-020-0180",
+    "bedrooms": 3,
+    "county": "Miami-Dade",
+    "legalDescription": "EVERGREEN GARDENS PB 17-30 LOT 30 BLK 1 & E1/2 OF ALLEY LYG W & ADJ CLOSED PER ORD 13492 LOT SIZE 7540 SQ FT M/L OR 19730-220",
+    "squareFootage": 1592,
+    "subdivision": "EVERGREEN GDNS",
+    "yearBuilt": 1939,
+    "zoning": "0104",
+    "bathrooms": 3,
+    "lotSize": 7540,
+    "propertyType": "Duplex-Triplex",
+    "lastSalePrice": 70000,
+    "lastSaleDate": "2013-10-22T00:00:00.000Z",
+    "features": {
+      "architectureType": "Duplex",
+      "exteriorType": "Concrete Block",
+      "floorCount": 1,
+      "roofType": "Other",
+      "unitCount": 2
+    },
+    "taxAssessment": {
+      "2019": {
+        "value": 197818,
+        "land": 84512,
+        "improvements": 113306
+      }
+    },
+    "propertyTaxes": {
+      "2019": {
+        "total": 3486
+      }
+    },
+    "owner": {
+      "names": [
+        "BRUMAR REAL ESTATE NO 6 LLC"
+      ],
+      "mailingAddress": {
+        "id": "2700-Sw-3rd-Ave,-Miami,-FL-33129",
+        "addressLine1": "2700 Sw 3rd Ave",
+        "city": "Miami",
+        "state": "FL",
+        "zipCode": "33129"
+      }
+    },
+    "id": "1619-Nw-27th-St,-Miami,-FL-33142",
+    "longitude": -80.222953,
+    "latitude": 25.80149
+  }
+]
